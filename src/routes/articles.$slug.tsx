@@ -1,6 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowLeft, Calendar, Clock, Share2 } from "lucide-react";
-import { articles } from "@/data/articles";
+import { articles, type Article } from "@/data/articles";
 import { CTASection } from "@/components/CTASection";
 
 export const Route = createFileRoute("/articles/$slug")({
@@ -28,7 +28,7 @@ export const Route = createFileRoute("/articles/$slug")({
 });
 
 function ArticleDetail() {
-  const { article } = Route.useLoaderData();
+  const { article } = Route.useLoaderData() as { article: Article };
   return (
     <>
       <article className="bg-secondary py-20">
